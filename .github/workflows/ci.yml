@@ -1,0 +1,59 @@
+name: Continous Integration
+
+on:
+  pull_request:
+
+permissions:
+  id-token: write
+  pull-requests: write
+  contents: write
+  repository-projects: write
+
+jobs:
+  # Build job
+  build:
+    name: 'Build 📦'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+
+      - name: Cache Flutter dependencies
+        uses: actions/cache@v3
+        with:
+          path: |
+            .pub-cache
+            **/pubspec.lock
+          key: ${{ runner.os }}-flutter-${{ hashFiles('**/pubspec.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-flutter-
+
+      - name: Install dependencies
+        run: flutter pub get
+
+      - name: Build with Flutter
+        run: flutter build web --release
+        
+  dependabot-automation:
+    runs-on: ubuntu-latest
+    needs: [build]
+    if: ${{ github.actor == 'dependabot[bot]' }}
+    timeout-minutes: 13
+    steps:
+      - name: Dependabot metadata
+        id: metadata
+        uses: dependabot/fetch-metadata@v1.4.0
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Approve & enable auto-merge for Dependabot PR
+        run: |
+          gh pr review --approve "$PR_URL"
+          gh pr edit "$PR_URL" -t "(auto merged) $PR_TITLE"
+          gh pr merge --auto --merge "$PR_URL"
+        env:
+          PR_URL: ${{ github.event.pull_request.html_url }}
+          PR_TITLE: ${{ github.event.pull_request.title }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
