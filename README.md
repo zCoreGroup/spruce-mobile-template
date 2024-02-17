@@ -124,6 +124,21 @@ curl localhost:3000/ping
 ```
 
 
+# Documentation
+
+[MDBook](https://rust-lang.github.io/mdbook)
+
+To add pages, update the `docs/SUMMARY.md` file.
+MDBook will automatically create the file if it doesn't exist during a build or serve which is the easiest way to add
+content.
+
+## Serving documentation locally
+
+```shell
+mdbook serve
+```
+
+
 ## Contribution
 
 Please read `CONTRIBUTING.md` for details on our code of conduct, and the process for submitting pull requests.
