@@ -10,5 +10,5 @@ spec:
     - match: Host(`traefik-dashboard.ruby.caffeineforcode.com`)
       kind: Rule
       services:
-        - name: traefik
-          port: 9000
+        - name: api@internal
+          kind: TraefikService
