@@ -13,6 +13,13 @@ class _HomeControllerState extends State<HomeController> {
     "Claim 1 Subject",
     "Claim 2 Subject",
     "Claim 3 Subject",
+    "Claim 4 Subject",
+    "Claim 5 Subject",
+    "Claim 6 Subject",
+    "Claim 7 Subject",
+    "Claim 8 Subject",
+    "Claim 9 Subject",
+    "Claim 10 Subject",
     // Add more Claims
   ];
 
@@ -23,7 +30,7 @@ class _HomeControllerState extends State<HomeController> {
       body: Row(
         children: <Widget>[
           Expanded(
-            flex: 2,
+            flex: 1,
             child: Container(
               color: Colors.blueGrey,
               child: const Column(
@@ -38,7 +45,7 @@ class _HomeControllerState extends State<HomeController> {
           ),
           // Claim list in the middle
           Expanded(
-            flex: 3,
+            flex: 2,
             child: ListView.builder(
               itemCount: Claims.length,
               itemBuilder: (context, index) {
@@ -56,7 +63,7 @@ class _HomeControllerState extends State<HomeController> {
           ),
           // Main content on the right
           Expanded(
-            flex: 5, // Adjust the ratio as needed
+            flex: 7, // Adjust the ratio as needed
             child: Container(
               padding: const EdgeInsets.all(16),
               child: selectedIndex < Claims.length
