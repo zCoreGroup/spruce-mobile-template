@@ -1,22 +1,21 @@
-
 import 'package:flutter/material.dart';
 import 'package:spruceTesting/config/router.dart';
 import 'package:spruceTesting/theme/color_themes.dart';
 import 'package:spruceTesting/theme/text_themes.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
-void main() => runApp(const SemperMadeApp());
+void main() => runApp(const spruceTestingApp());
 
 /// The main app.
-class SemperMadeApp extends StatelessWidget {
-  /// Constructs a [SemperMadeApp]
-  const SemperMadeApp({super.key});
+class spruceTestingApp extends StatelessWidget {
+  /// Constructs a [spruceTestingApp]
+  const spruceTestingApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
       debugShowCheckedModeBanner: false,
-      title: 'SemperMade Demo',
+      title: 'spruceTesting Demo',
       routerConfig: router,
       theme: ThemeData(
           useMaterial3: true,

@@ -14,7 +14,7 @@ class MenuScaffold extends StatelessWidget {
           // Display AppBar with Row for wider screens
           return Scaffold(
             appBar: AppBar(
-              title: const Text('SemperMade Demo'),
+              title: const Text('spruceTesting Demo'),
               actions: routeNames
                   .map((route) => TextButton(
                         onPressed: () => context.go('/$route'),
@@ -28,7 +28,7 @@ class MenuScaffold extends StatelessWidget {
           // Display AppBar with Drawer for smaller screens
           return Scaffold(
             appBar: AppBar(
-              title: const Text('SemperMade Demo'),
+              title: const Text('spruceTesting Demo'),
             ),
             drawer: Drawer(
               child: ListView(
