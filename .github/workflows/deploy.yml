@@ -79,21 +79,21 @@ jobs:
       - name: Create AWS Cloudfront Invalidation
         run: aws cloudfront create-invalidation --distribution-id ${{ secrets.AWS_CLOUDFRONT_DISTRIBUTION_ID }} --paths "/*"
 
-  # Deployment to GitHub Pages
-  deploy-gh-pages:
-    runs-on: ubuntu-latest
-    needs: build-flutter
-    steps:
-      - uses: actions/checkout@v4
+  # # Deployment to GitHub Pages
+  # deploy-gh-pages:
+  #   runs-on: ubuntu-latest
+  #   needs: build-flutter
+  #   steps:
+  #     - uses: actions/checkout@v4
 
-      - name: Download build artifact
-        uses: actions/download-artifact@v3
-        with:
-          name: flutter-web
-          path: build/web/
+  #     - name: Download build artifact
+  #       uses: actions/download-artifact@v3
+  #       with:
+  #         name: flutter-web
+  #         path: build/web/
 
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./build/web/
+  #     - name: Deploy to GitHub Pages
+  #       uses: peaceiris/actions-gh-pages@v3
+  #       with:
+  #         github_token: ${{ secrets.GITHUB_TOKEN }}
+  #         publish_dir: ./build/web/
