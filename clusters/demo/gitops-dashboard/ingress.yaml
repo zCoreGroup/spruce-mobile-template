@@ -2,7 +2,7 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: gitops-dashboard-ingress
-  namespace: default
+  namespace: flux-system
   annotations:
     traefik.ingress.kubernetes.io/router.entrypoints: web
 spec:
