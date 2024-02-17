@@ -1,0 +1,15 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: nginx-ingressroute
+  namespace: default
+spec:
+  entryPoints:
+    - web # This should match your Traefik entry point configuration
+  routes:
+  - match: Host(`home.ruby.caffeineforcode.com`)
+    kind: Rule
+    services:
+    - name: nginx # This should match the service name exposed by your Nginx Helm release
+      port: 80
+
