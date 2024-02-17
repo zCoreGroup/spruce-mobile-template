@@ -38,4 +38,18 @@ spec:
       create: true
       passwordHash: $2a$10$rTen05brruDUjz10wfV5suoLxe9cClHsJZiGsl5fgMwwjJE73PSg.
       username: admin
-
+---
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: simpleingressroute
+  namespace: default
+spec:
+  entryPoints:
+    - web
+  routes:
+  - match: Host(`weave.ruby.caffeineforcode.com`)
+    kind: Rule
+    services:
+    - name: ww-gitops-weave-gitops
+      port: 80
