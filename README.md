@@ -98,6 +98,32 @@ xcodebuild -exportArchive -archivePath build/Runner.xcarchive -exportOptionsPlis
 
 1. Follow the guide here to upload your IPA: [Distribute an app through App Store](https://help.apple.com/xcode/mac/current/#/dev067853c94)
 
+# API Server
+
+Written in [Go](https://go.dev/) check documentation for install.
+
+## Build the Server
+
+```shell
+cd server
+mkdir -p bin
+go build -o ./bin ./...
+```
+
+## Run the Server
+
+```shell
+./bin/server
+```
+
+## Check the Server
+
+```shell
+curl localhost:3000/ping
+# output: pong
+```
+
+
 ## Contribution
 
 Please read `CONTRIBUTING.md` for details on our code of conduct, and the process for submitting pull requests.
