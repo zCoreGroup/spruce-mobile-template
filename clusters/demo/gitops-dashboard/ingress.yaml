@@ -14,6 +14,6 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: ww-gitops
+            name: ww-gitops-weave-gitops
             port:
               number: 9001
