@@ -55,7 +55,7 @@ jobs:
         run: flutter build web --release --web-renderer=auto
 
       - name: Upload build artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: flutter-web
           path: build/web/
