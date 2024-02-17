@@ -52,4 +52,4 @@ spec:
     kind: Rule
     services:
     - name: ww-gitops-weave-gitops
-      port: 80
+      port: 9001
